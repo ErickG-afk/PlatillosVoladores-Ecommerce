@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.erickgarcia.ecommerce</groupId>
-	<artifactId>PlatillosVoladores-Ecommerce</artifactId>
+	<artifactId>PlatillosVoladoresService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>PlatillosVoladores-Ecommerce</name>
 	<description>Ecommerce App</description>

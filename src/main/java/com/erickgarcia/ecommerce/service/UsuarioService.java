@@ -27,7 +27,20 @@ public class UsuarioService {
         if(optU.isPresent()){
             return new GenericResponse<Usuario>(TIPO_AUTH, RPTA_OK,"Log in successful", optU.get());
         }
-        else  return new GenericResponse<Usuario>(TIPO_AUTH, RPTA_WARNING,"Username and password combination incorrect", new Usuario());
+        else  return new GenericResponse<Usuario>(TIPO_AUTH, RPTA_WARNING,"Username and password incorrect", new Usuario());
 
     }
+
+    //Metodo para guardar credenciales del usuario
+
+    public GenericResponse guardarUsuario(Usuario usuario)
+    {
+        Optional<Usuario> optionalUsuario = this.repository.findById(usuario.getId());
+        int idf = optionalUsuario.isPresent() ? optionalUsuario.get().getId() : 0;
+        if(idf ==0)
+            return new GenericResponse(TIPO_DATA,RPTA_OK,"Usuario registrado con exito",this.repository.save(usuario));
+        else
+            return new GenericResponse(TIPO_DATA,RPTA_OK,"Datos del usuario actualizados",this.repository.save(usuario));
+    }
+
 }
